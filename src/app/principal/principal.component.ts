@@ -1,26 +1,19 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { Performance } from '../models/performance';
+import { Component, OnInit } from '@angular/core';
+import { Performance } from '../../models/performance';
 import { Chart, ChartConfiguration, ChartItem, ScatterDataPoint, registerables } from 'chart.js';
 import 'chartjs-adapter-date-fns';
-import { Router } from '@angular/router';
 @Component({
-  selector: 'app-root',
+  selector: 'app-principal',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [CommonModule],
+  templateUrl: './principal.component.html',
+  styleUrl: './principal.component.css'
 })
-export class AppComponent implements OnInit {
+export class PrincipalComponent {
   title = 'app pour objectif ultra trail';
   description = "Bienvenue à vous, où tout ce que vous avez envie d'avoir en statistiques est devant vous";
-  constructor(
 
-    private router: Router,
-
-  ) {
-  }
   TableauDesPerf: Performance[] = [
     { distance: 1, time: '3:14', date: '2023-08-01' },
     { distance: 2, time: '7:36', date: '2023-08-02' },
@@ -38,10 +31,7 @@ export class AppComponent implements OnInit {
     Chart.register(...registerables);
     this.createChart();
   }
-profil(){
-  this.router.navigate(['/Profil']);
-}
-  createChart(): void {
+ createChart(): void {
     const chartItem: ChartItem = document.getElementById('performanceChart') as ChartItem;
 
     if (this.chart) {
