@@ -1,5 +1,22 @@
 
-  <button (click)="profil()" >Go to New Component</button>
+    <button (click)="profil()" >Go to New Component</button>
 
-
-<router-outlet></router-outlet>
+    <nav>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="#" class="menu-button">Menu</a>
+          <ul class="submenu">
+            <li  (click)="profil()">Profil</li>
+            <li><a href="#">Connexion</a></li>
+            <li class="dropdown">
+              <a href="#">Alimentation</a>
+              <ul class="dropdown-content">
+                <li><a href="#">Strava</a></li>
+                <li><a href="#">À la main</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  <router-outlet></router-outlet>
